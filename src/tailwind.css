@@ -1,0 +1,26 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital@1&family=Roboto&family=Sora&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Epilogue&family=Raleway:ital@1&family=Roboto&family=Sora&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .cm-flex {
+    @apply flex items-center justify-center;
+  }
+  .cm-flex-col {
+    @apply flex flex-col items-center justify-center;
+  }
+  .cm-icons {
+    @apply mx-2 mt-6 cursor-pointer rounded-3xl text-main-color duration-150  hover:scale-125 md:mt-2;
+  }
+
+  * {
+    font-family: 'Epilogue';
+  }
+
+  /* .stroke-text {
+    -webkit-text-stroke: 0.5vw @apply main-color;
+  } */
+}
