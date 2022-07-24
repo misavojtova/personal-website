@@ -8,6 +8,7 @@ import { VscGithub } from 'react-icons/vsc';
 const Navbar = () => {
   const [active, setActive] = useState(false);
   const [resized, setResized] = useState('');
+
   useEffect(() => {
     setResized('');
   }, [resized]);
@@ -22,11 +23,10 @@ const Navbar = () => {
     };
   }, []);
 
-  console.log(active);
   const navigationLinks = routes.map(link => {
     return (
       <Link
-        className='my-3 mx-2 border-b-2 border-b-transparent text-xl font-medium transition-all duration-150 ease-in-out hover:scale-110 hover:border-b-2 hover:border-main-color md:my-0 md:mt-2'
+        className='class="mobile: desktop: md:mt-2" my-3 mx-2 border-b-2 border-b-transparent transition-all duration-150 ease-in-out hover:scale-110 hover:border-b-2 hover:border-main-color md:my-0'
         to={link.route}
       >
         {link.name}
@@ -35,8 +35,8 @@ const Navbar = () => {
   });
   return (
     <nav // Navigation Links
-      className={` ${active ? 'h-full' : 'h-0'}${resized}
-      cm-flex-col absolute w-full bg-main transition-[height] duration-1000 md:relative md:h-[8vh] md:flex-row md:items-start md:justify-between md:bg-transparent md:opacity-100`}
+      className={` ${active ? 'h-full' : 'h-0'} ${resized}
+      cm-flex-col absolute flex w-full bg-main transition-[height] duration-1000 md:relative md:h-[8vh] md:flex-row md:justify-between md:bg-transparent md:opacity-100`}
     >
       <div
         className={`cm-flex-col opacity-0 transition-[opacity] ${

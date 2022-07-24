@@ -22,12 +22,15 @@ module.exports = {
       colors: {
         main: '#0A0A0AEB',
         'main-color': '#b73a55',
+        gradient1: '#080a0c',
+        gradient2: '#15212d',
+        gradient3: ' #302523',
       },
       fontFamily: {
         hachi: ['hachi maru pop'],
       },
-      backgroundImage: theme => ({
-        'main-img': "url('assets/images/background.jpg')",
+      backgroundImage: () => ({
+        'main-img': "url('assets/images/bck.jpg')",
       }),
     },
   },

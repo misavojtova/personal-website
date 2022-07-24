@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { FC } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { routes } from 'core/routes';
+
 interface ArrowRouteProps {
   icon: any;
   className?: string;

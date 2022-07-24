@@ -1,6 +1,5 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&display=swap'); */
-@import url('https://fonts.googleapis.com/css2?family=Raleway:ital@1&family=Roboto&family=Sora&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Epilogue&family=Raleway:ital@1&family=Roboto&family=Sora&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -17,10 +16,6 @@
   }
 
   * {
-    font-family: 'Epilogue';
+    font-family: 'Rubik';
   }
-
-  /* .stroke-text {
-    -webkit-text-stroke: 0.5vw @apply main-color;
-  } */
 }

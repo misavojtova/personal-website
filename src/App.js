@@ -18,16 +18,18 @@ const App = () => {
       <BrowserRouter>
         <Background>
           <Navbar />
-          <ArrowRoute left className='left-[2%]' icon={faAngleDoubleLeft} />
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/about' element={<About />} />
-            <Route path='/contact' element={<Contact />} />
-            <Route path='/portfolio' element={<Portfolio />} />
-            <Route path='/experience' element={<Experience />} />
-            <Route path='/education' element={<Education />} />
-          </Routes>
-          <ArrowRoute right className='right-[2%]' icon={faAngleDoubleRight} />
+          <div className='flex h-[92vh] items-center justify-center'>
+            <ArrowRoute left className='left-[2%]' icon={faAngleDoubleLeft} />
+            <Routes>
+              <Route path='/' element={<Home />} />
+              <Route path='/about' element={<About />} />
+              <Route path='/contact' element={<Contact />} />
+              <Route path='/portfolio' element={<Portfolio />} />
+              <Route path='/experience' element={<Experience />} />
+              <Route path='/education' element={<Education />} />
+            </Routes>
+            <ArrowRoute right className='right-[2%]' icon={faAngleDoubleRight} />
+          </div>
         </Background>
       </BrowserRouter>
     </div>

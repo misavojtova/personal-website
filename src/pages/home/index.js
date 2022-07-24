@@ -1,24 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Button from 'pages/home/components/Button';
 import Title from 'pages/home/components/Title';
-
+import pdf from 'assets/download/resume.pdf';
 const Home = () => {
-  // const [animate, setAnimate] = useState('');
-
-  // useEffect(() => {
-  //   setInterval(() => {
-  //     setTimeout(() => {
-  //       setAnimate('');
-  //     }, 2000);
-  //     setAnimate('animate-btn-anim');
-  //   }, 8000);
-  // }, []);
-
   return (
-    <div className='cm-flex-col h-full '>
+    <div className='cm-flex-col'>
       <Title />
       <Button extraClass={` hover:animate-btn-anim  my-6 lg:py-5 lg:px-10 `}>
-        Download Resume
+        <a href={pdf} download='Michaela_Castellares_Vojtova_CV'>
+          Download Resume
+        </a>
       </Button>
     </div>
   );
