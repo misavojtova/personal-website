@@ -1,9 +1,8 @@
 export const routes = [
-  { name: 'HOME', route: '/' },
-  { name: 'ABOUT ME', route: '/about' },
-  { name: 'EDUCATION', route: '/education' },
-  { name: 'EXPERIENCE', route: '/experience' },
-  { name: 'PORTFOLIO', route: '/portfolio' },
-  { name: 'CONTACT ME', route: '/contact' },
+  { name: 'HOME', route: '/', id: 0 },
+  { name: 'ABOUT ME', route: '/about', id: 1 },
+  { name: 'EDUCATION', route: '/education', id: 2 },
+  { name: 'EXPERIENCE', route: '/experience', id: 3 },
+  { name: 'PORTFOLIO', route: '/portfolio', id: 4 },
+  { name: 'CONTACT ME', route: '/contact', id: 5 },
 ];
-export const icons = [{ icon: '' }, { icon: '' }];

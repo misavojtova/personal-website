@@ -2,16 +2,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { FC } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { routes } from 'core/routes';
+import useSize from 'core/hooks/useSize';
 
 interface ArrowRouteProps {
   icon: any;
-  className?: string;
+  placement?: string;
   left?: boolean;
   right?: boolean;
 }
 
-const ArrowRoute: FC<ArrowRouteProps> = ({ icon, className, left, right }) => {
+const ArrowRoute: FC<ArrowRouteProps> = ({ icon, placement, left, right }) => {
   const location = useLocation();
+  const { iconNavbarSize } = useSize();
   const navigate = useNavigate();
   const indexOfLocation = routes
     .map((item: { route: string }): string => item.route)
@@ -20,6 +22,7 @@ const ArrowRoute: FC<ArrowRouteProps> = ({ icon, className, left, right }) => {
   const prevRoute =
     indexOfLocation - 1 === -1 ? routes[routes.length - 1] : routes[indexOfLocation - 1];
 
+  console.log(indexOfLocation);
   const handleClick = () => {
     navigate((left && prevRoute.route) || (right && nextRoute.route));
   };
@@ -27,7 +30,8 @@ const ArrowRoute: FC<ArrowRouteProps> = ({ icon, className, left, right }) => {
   return (
     <FontAwesomeIcon
       onClick={handleClick}
-      className={`${className} translate-x-top-2/4 translate-y-top-2/4 absolute  top-2/4  animate-pulse cursor-pointer text-6xl transition-all   duration-300 hover:scale-125`}
+      style={{ fontSize: iconNavbarSize }}
+      className={`${placement} translate-x-top-2/4 translate-y-top-2/4 absolute top-2/4  z-0 animate-pulse cursor-pointer transition-all duration-300 hover:scale-[1.2]`}
       icon={icon}
     />
   );
