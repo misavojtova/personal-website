@@ -3,9 +3,7 @@ import useWindowDimensions from 'core/hooks/useWindowDimensions';
 import 'tailwind.css';
 
 const MainContainer = ({ children }: any) => {
-  const { height, width } = useWindowDimensions();
-  console.log(height, width);
-  console.log(children);
+  const { height } = useWindowDimensions();
   return (
     <div
       style={{ height: `${height}px` }}

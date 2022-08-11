@@ -4,7 +4,7 @@ import { SkillBox } from 'pages/about/components/SkillBox';
 
 const About = () => {
   return (
-    <>
+    <div className='he flex h-full w-full items-end justify-center'>
       <SkillBox />
       {/* <div className='cm-flex-col'>
         <h5>About me</h5>
@@ -25,7 +25,7 @@ const About = () => {
         months remote internship at IDUN technologies and together with my classmates we built a
         prototype for testing brain activities.
       </div> */}
-    </>
+    </div>
   );
 };
 

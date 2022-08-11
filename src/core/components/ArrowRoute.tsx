@@ -1,8 +1,10 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { routes } from 'core/routes';
 import useSize from 'core/hooks/useSize';
+import { useDispatch } from 'react-redux';
+import { currentPage } from 'core/redux/feature/page.feature';
 
 interface ArrowRouteProps {
   icon: any;
@@ -13,16 +15,21 @@ interface ArrowRouteProps {
 
 const ArrowRoute: FC<ArrowRouteProps> = ({ icon, placement, left, right }) => {
   const location = useLocation();
-  const { iconNavbarSize } = useSize();
   const navigate = useNavigate();
-  const indexOfLocation = routes
+  const dispatch = useDispatch();
+
+  const { iconNavbarSize } = useSize();
+  const page = routes
     .map((item: { route: string }): string => item.route)
     .indexOf(location.pathname);
-  const nextRoute = indexOfLocation < routes.length - 1 ? routes[indexOfLocation + 1] : routes[0];
-  const prevRoute =
-    indexOfLocation - 1 === -1 ? routes[routes.length - 1] : routes[indexOfLocation - 1];
 
-  console.log(indexOfLocation);
+  useEffect(() => {
+    dispatch(currentPage(page));
+  }, [dispatch, page]);
+
+  const nextRoute = page < routes.length - 1 ? routes[page + 1] : routes[0];
+  const prevRoute = page - 1 === -1 ? routes[routes.length - 1] : routes[page - 1];
+
   const handleClick = () => {
     navigate((left && prevRoute.route) || (right && nextRoute.route));
   };

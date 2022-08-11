@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import 'tailwind.css';
+import { useSelector } from 'react-redux';
 import { routes } from 'core/routes';
 import { Link } from 'react-router-dom';
 import { HiOutlineMenu } from 'react-icons/hi';
@@ -14,6 +15,8 @@ const Navbar = () => {
   const [active, setActive] = useState(false);
   const [resized, setResized] = useState('');
   const renderHeight = active ? height : (height / 100) * 10;
+
+  const currentPage = useSelector(state => state.page.currentPage);
 
   useEffect(() => {
     setResized('');
@@ -33,7 +36,9 @@ const Navbar = () => {
   const navigationLinks = routes.map(link => {
     return (
       <Link
-        className='class="md:mt-2" my-3 mx-2 border-b-2 border-b-transparent transition-all duration-150 ease-in-out hover:scale-110 hover:border-b-2 hover:border-main-color md:my-0'
+        className={`class="md:mt-2" my-3 mx-2 border-b-2 border-b-transparent transition-all duration-100 ease-in-out hover:scale-110 hover:border-b-2 hover:border-main-color md:my-0 ${
+          link.id === currentPage && 'scale-110 border-b-2 border-b-main-color'
+        }`}
         to={link.route}
         key={link.id}
       >
