@@ -1,11 +1,9 @@
 import React from 'react';
 import 'tailwind.css';
-import { SkillBox } from 'pages/about/components/SkillBox';
 
 const About = () => {
   return (
     <div className='he flex h-full w-full items-end justify-center'>
-      <SkillBox />
       {/* <div className='cm-flex-col'>
         <h5>About me</h5>
         <h5>Hello and Thank you for reading a little bit about me</h5>

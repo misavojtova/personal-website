@@ -38,7 +38,7 @@ const ArrowRoute: FC<ArrowRouteProps> = ({ icon, placement, left, right }) => {
     <FontAwesomeIcon
       onClick={handleClick}
       style={{ fontSize: iconNavbarSize }}
-      className={`${placement} translate-x-top-2/4 translate-y-top-2/4 absolute top-2/4  z-0 animate-pulse cursor-pointer transition-all duration-300 hover:scale-[1.2]`}
+      className={`${placement} translate-x-top-2/4 translate-y-top-2/4 absolute top-[90%]  z-0 animate-pulse cursor-pointer transition-all duration-300 hover:scale-[1.2]`}
       icon={icon}
     />
   );

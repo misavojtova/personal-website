@@ -1,23 +1,30 @@
 import useWindowDimensions from 'core/hooks/useWindowDimensions';
 
 export default function useSize() {
+  const { width } = useWindowDimensions();
+  const onePercentWidth = width / 100;
+  // Break Points
   const six = 640;
   const seven = 768;
   const ten = 1024;
-  const twelve = 1280;
 
-  const { width } = useWindowDimensions();
-  const fontTextSize = (width / 100) * 4;
-  const iconSkillSize = (width / 100) * 6;
+  // Paddings
+  const mainContainerPadding = onePercentWidth * 4;
+
+  // font Size
+  const fontTextSize = onePercentWidth * 4;
+
+  // Icon Size
+  const iconSkillSize = onePercentWidth * 6;
 
   const iconNavbarSize =
     width < six
-      ? (width / 100) * 6 + 10
+      ? onePercentWidth * 6 + 10
       : width < seven
-      ? (width / 100) * 5 + 10
+      ? onePercentWidth * 5 + 10
       : width < ten
-      ? (width / 100) * 3.5 + 10
-      : (width / 100) * 2.5 + 10;
+      ? onePercentWidth * 3.5 + 10
+      : onePercentWidth * 2.5 + 10;
 
-  return { fontTextSize, iconSkillSize, iconNavbarSize };
+  return { fontTextSize, iconSkillSize, iconNavbarSize, mainContainerPadding };
 }
