@@ -17,7 +17,7 @@ const App = () => {
     <BrowserRouter>
       <MainContainer>
         <Navbar />
-        <ContentContainer className='items-center justify-center '>
+        <ContentContainer>
           <ArrowRoute left placement={LEFT_ARROW} icon={faAngleDoubleLeft} />
           <Routes>
             <Route path='/' element={<Home />} />

@@ -11,12 +11,12 @@ import { ICON_NAVBAR_SIZE } from 'core/config/configSize';
 import { HOVER_SCALE_ANIMATION_ONE, MAIN_APP_PADDING } from 'core/config/configSize';
 
 const Navbar = () => {
-  const { height } = useWindowDimensions();
+  const { height, navbarHeight } = useWindowDimensions();
   const [active, setActive] = useState(false);
   const [resized, setResized] = useState('');
-  const renderHeight = active ? height : (height / 100) * 8;
+  const renderHeight = active ? height : navbarHeight;
 
-  const currentPage = useSelector(state => state.page.currentPage);
+  const currentPage = useSelector<any, number>(state => state.page.currentPage);
 
   useEffect(() => {
     setResized('');

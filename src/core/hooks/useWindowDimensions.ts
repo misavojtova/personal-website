@@ -2,9 +2,13 @@ import { useState, useEffect } from 'react';
 
 function getWindowDimensions() {
   const { width, height } = window.visualViewport;
+  const contentHeight = (height / 100) * 92;
+  const navbarHeight = (height / 100) * 8;
   return {
     width,
     height,
+    contentHeight,
+    navbarHeight,
   };
 }
 
