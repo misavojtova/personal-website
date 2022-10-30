@@ -2,9 +2,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { FC, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { routes } from 'core/routes';
-import useSize from 'core/hooks/useSize';
 import { useDispatch } from 'react-redux';
 import { currentPage } from 'core/redux/feature/page.feature';
+import { HOVER_SCALE_ANIMATION_ONE, ICON_NAVBAR_SIZE } from 'core/config/configSize';
 
 interface ArrowRouteProps {
   icon: any;
@@ -18,7 +18,6 @@ const ArrowRoute: FC<ArrowRouteProps> = ({ icon, placement, left, right }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const { iconNavbarSize } = useSize();
   const page = routes
     .map((item: { route: string }): string => item.route)
     .indexOf(location.pathname);
@@ -27,18 +26,17 @@ const ArrowRoute: FC<ArrowRouteProps> = ({ icon, placement, left, right }) => {
     dispatch(currentPage(page));
   }, [dispatch, page]);
 
-  const nextRoute = page < routes.length - 1 ? routes[page + 1] : routes[0];
-  const prevRoute = page - 1 === -1 ? routes[routes.length - 1] : routes[page - 1];
+  const next = page < routes.length - 1 ? routes[page + 1] : routes[0];
+  const prev = page - 1 === -1 ? routes[routes.length - 1] : routes[page - 1];
 
   const handleClick = () => {
-    navigate((left && prevRoute.route) || (right && nextRoute.route));
+    navigate((left && prev.route) || (right && next.route));
   };
 
   return (
     <FontAwesomeIcon
       onClick={handleClick}
-      style={{ fontSize: iconNavbarSize }}
-      className={`${placement} translate-x-top-2/4 translate-y-top-2/4 absolute top-[90%]  z-0 animate-pulse cursor-pointer transition-all duration-300 hover:scale-[1.2]`}
+      className={`${placement} ${ICON_NAVBAR_SIZE} translate-x-top-2/4 translate-y-top-2/4 absolute bottom-[5%]  z-0 animate-pulse cursor-pointer transition-all duration-300 ${HOVER_SCALE_ANIMATION_ONE}`}
       icon={icon}
     />
   );

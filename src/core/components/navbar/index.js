@@ -7,14 +7,14 @@ import { HiOutlineMenu } from 'react-icons/hi';
 import { BsLinkedin } from 'react-icons/bs';
 import { VscGithub } from 'react-icons/vsc';
 import useWindowDimensions from 'core/hooks/useWindowDimensions';
-import useSize from 'core/hooks/useSize';
+import { ICON_NAVBAR_SIZE } from 'core/config/configSize';
+import { HOVER_SCALE_ANIMATION_ONE, MAIN_APP_PADDING } from 'core/config/configSize';
 
 const Navbar = () => {
   const { height } = useWindowDimensions();
-  const { iconNavbarSize } = useSize();
   const [active, setActive] = useState(false);
   const [resized, setResized] = useState('');
-  const renderHeight = active ? height : (height / 100) * 10;
+  const renderHeight = active ? height : (height / 100) * 8;
 
   const currentPage = useSelector(state => state.page.currentPage);
 
@@ -50,7 +50,7 @@ const Navbar = () => {
   return (
     <nav
       style={{ height: `${renderHeight}px` }}
-      className={`NavBar ${resized}
+      className={`NavBar ${resized} ${MAIN_APP_PADDING}
     cm-flex-col absolute z-10 flex  w-full bg-[#0a0e12] transition-[height] duration-1000 md:relative md:flex-row md:justify-between md:bg-transparent`}
     >
       {/* --------------------------- NAVIGATION LINKS --------------------------------- */}
@@ -64,19 +64,21 @@ const Navbar = () => {
 
       {/* --------------------------- REDIRECT ICONS ------------------------------------ */}
       <div
-        style={{ fontSize: iconNavbarSize }}
-        className={`z-10 flex justify-center opacity-0 transition-[opacity] ${
+        className={`${ICON_NAVBAR_SIZE} z-10 flex justify-center opacity-0 transition-[opacity] ${
           active ? 'opacity-100 duration-1500' : 'duration-500'
         } md:opacity-100 `}
       >
-        <BsLinkedin className={`cm-icons  `} />
-        <VscGithub className='cm-icons' />
+        <BsLinkedin
+          className={`mx-2 mt-6 cursor-pointer rounded-3xl text-main-color   ${HOVER_SCALE_ANIMATION_ONE} md:mt-2`}
+        />
+        <VscGithub
+          className={`mx-2 mt-6 cursor-pointer rounded-3xl text-main-color duration-150  ${HOVER_SCALE_ANIMATION_ONE} md:mt-2`}
+        />
       </div>
 
       {/* -------------------------------- HAMBURGER MENU --------------------------------- */}
       <div
-        style={{ fontSize: iconNavbarSize }}
-        className='absolute top-0 right-1 z-10 flex cursor-pointer transition-all duration-300 hover:scale-110 md:hidden'
+        className={`${ICON_NAVBAR_SIZE} absolute  top-0 right-1 z-10 flex cursor-pointer transition-all duration-300 ${HOVER_SCALE_ANIMATION_ONE} md:hidden`}
         onClick={() => setActive(!active)}
       >
         <HiOutlineMenu />
