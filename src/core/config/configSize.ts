@@ -1,7 +1,7 @@
 //  ******************************************
 // FONT SIZE CONFIG
 export const BASIC_TEXT = 'xs';
-export const TITLE_TEXT = 'text-5xl';
+export const TITLE_TEXT = '4vw';
 export const ICON_NAVBAR_SIZE = 'text-5xl';
 export const REGULAR_ICON_SIZE = 'text-5xl';
 

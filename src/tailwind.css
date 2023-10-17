@@ -19,4 +19,8 @@
     font-family: 'Rubik';
     height: fit-content;
   }
+
+  * > input {
+    color: black;
+  }
 }
